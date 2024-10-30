@@ -6,4 +6,7 @@ A better version of first_baby that has more functions, uses classes, and has be
 THIS CREATES TWO NEW TEXT FILES ON YOUR COMPUTER: filecode.txt and a1lockedbook.txt
 
 Expanded idea of journaltest.py to have a navigatable journal/book that allows you to search day, month, year, and iteration.
-Need to add a more friendly user interface that works in both python terminals and making the program more concise (less but bigger functions?), maybe add a function that reads filecode.txt and put its data in global variables so read() and write() dont have to manually do it, dates have finally been added which was a pain in the butt, I might do another setting that changes (month/day/year) to (hour:minute \t day/month).
+
+#Things I need to work on:
+
+Need to add a more friendly user interface and making the program more concise (less but bigger functions?), maybe add a function that reads filecode.txt and put its data in global variables so read() and write() dont have to manually do it, dates have finally been added which was a pain in the butt, I might do another setting that changes (month/day/year) to (hour:minute \t day/month). Makes user profiles that have specific perms to either only their interations or all iterations as an admin
