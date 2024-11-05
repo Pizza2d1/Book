@@ -16,6 +16,15 @@ def firsttime():                #When using the program for the first time, it m
         with open('a1lockedbook.txt', 'w') as book:
             book.write('This is the first line, you can add others by choosing to "write" instead of "read". You can also choose to delete different iterations or go to settings  '
                        + str(time.month)+'/'+str(time.day)+'/'+str(time.year-2000) + '\n')
+def resettext():                #Resets both filecode.txt and (?)lockedbook.txt so that older versions of the txt files don't break newer versions of the python programs
+    open('filecode.txt', "x")
+    with open('filecode.txt', 'w') as text:
+        text.write('a1\n1\n1\n1\n')
+    open('a1lockedbook.txt', 'x')
+    time = datetime.now()
+    with open('a1lockedbook.txt', 'w') as book:
+        book.write('This is the first line, you can add others by choosing to "write" instead of "read". You can also choose to delete different iterations or go to settings  '+ str(time.month)+'/'+str(time.day)+'/'+str(time.year-2000) + '\n')
+
 
 def route_selection(uinput):    #Choses what function or class the user goes to based on input
     global retryswitch
