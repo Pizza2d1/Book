@@ -55,6 +55,9 @@ def route_selection(uinput):    #Choses what function or class the user goes to 
         settings(num)
     elif uinput == 'se' or uinput == 'search' or uinput == '5' or uinput == 'SEARCH':
          search(num,code,input("Month, Day, or Year? 1/2/3: "))
+    elif input == 'r' or uinput == 'reset' or uinput == '6' or uinput == 'RESET':
+        resettext()
+        return
     else:
         print('Invalid input')
         retryswitch = 0
@@ -178,7 +181,7 @@ def switch(x):          #Switches values in text file 1/0 (Changes true to false
 def main():     #I dont like the idea of main functions but added it anyways, look how short it is, seems completely unnecessary right?
     firsttime()
     while retryswitch:
-        uinput = input("Open book? N̲o/R̲ead/W̲rite/D̲elete/S̲ettings/S̲e̲arch: ")
+        uinput = input("Open book? N̲o/R̲ead/W̲rite/D̲elete/S̲ettings/S̲e̲arch/R̲eset: ")
         route_selection(uinput)
 
 main()
