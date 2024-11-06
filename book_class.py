@@ -30,18 +30,18 @@ class Write(Variables):     #Writes a user input to the text file by copying the
         self.number_of_iterations += 1
 
 class Read(Variables):      #Reads the text file and allows the user to decide which iteration to read or to read all of them
-    def __init__(self, number_of_iterations, start_of_textfile_code, delreadfunc, finddate):
+    def __init__(self, number_of_iterations, start_of_textfile_code, delreadfunc, finddate, num_of_lines_in_filecode):
         super (Read, self).__init__(number_of_iterations, start_of_textfile_code)   #Takes the number of iterations and the code at the start of the text file from Variables()                
         self.delreadfunc = delreadfunc  #Function to determine if you can read if a iteration is deleted, True or False
         self.finddate = finddate        #Function used to get the dates of all the iterations as a list
-
-    def inputcheck(user_input):        #Checks to see if an input is empty and if so returns to retry()
+        self.num_of_lines_in_filecode = num_of_lines_in_filecode
+    def inputcheck(user_input):     #Checks to see if an input is empty and if so returns to retry()
         if user_input == '':
             return False
         else:
             return True
 
-    def readback(self):     #Reads the iteration number and dates, works with delreadfunc()
+    def readback(self):             #Reads the iteration number and dates, works with delreadfunc()
         readlist = []
         deleted = 0
         dates = self.finddate
@@ -164,7 +164,11 @@ class Read(Variables):      #Reads the text file and allows the user to decide w
                 else:
                     return
         elif user_input == 'all' or user_input == 'a' or user_input == 'ALL':
-            iteration_amount = 0
+            codescheck = []
+            with open("filecode.txt", 'r') as codefile:     #Gets iteration amount to prevent resettext() in book_with_class.py making a mistake
+                for lines in range(self.num_of_lines_in_filecode):
+                    codescheck.append(codefile.readline())
+            iteration_amount = int((codescheck[1])[:-1])
             if self.delreadfunc:
                 Read.readback(self)
             else:  
@@ -181,11 +185,12 @@ class Read(Variables):      #Reads the text file and allows the user to decide w
                         print(x)
                         iteration_amount += 1
             if iteration_amount == 0:
-                print("There are currently no iterations that are able to be read")
+                print("There are currently no iterations that are able to be read\n")
             return
         else:
             print('Invalid input')
             return
+
 
 class Delete():             #Allows the user to delete a specific iteration, 
     def __init__(self, number_of_iterations, start_of_textfile_code, user_input):
