@@ -1,9 +1,9 @@
-import book_class                   #Personal python program that I made because I wanted to learn how classes work, plus it looks cool
-from datetime import datetime       #Needed to add accurate timestamps to iterations as you make them so I don't have to calculate the different day amounts in each month when its a new year
-import random                       #Used to allow the (?)lockedbook.txt to have a random "code" assigned to it
-import os                           #Needed to create and delete files, also useful for reseting to fix problems
-FILECODE_LINES = 4                  #const value that depends on the number of lines in filecode.txt for reading the file and writing back to the file
-retryswitch = 1                     #variable that works as a switch for if the program will continue taking user input
+import class_test.book_class as book_class      #Personal python program that I made because I wanted to learn how classes work, plus it looks cool
+from datetime import datetime                   #Needed to add accurate timestamps to iterations as you make them so I don't have to calculate the different day amounts in each month when its a new year
+import random                                   #Used to allow the (?)lockedbook.txt to have a random "code" assigned to it
+import os                                       #Needed to create and delete files, also useful for reseting to fix problems
+FILECODE_LINES = 4                              #const value that depends on the number of lines in filecode.txt for reading the file and writing back to the file
+retryswitch = 1                                 #variable that works as a switch for if the program will continue taking user input
 
 print("_________________________")  #A title for the program using figlet (letter expander)
 print(" ____   ___   ___  _  __")     
